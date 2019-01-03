@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+    include ApplicationHelper
     before_action :signed_in, only:[:new,:create]
     def new 
         @post = Post.new

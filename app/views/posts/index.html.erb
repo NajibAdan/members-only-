@@ -3,8 +3,10 @@
         <li>
         Title: <%= post.title%> <br>
         Body: <%= post.body%>
-        <%if User.logged_in?%>
+        <%if cookies.signed[:user_id]%>
             Author: <%= author(post.user_id)%>
+        <% else%>
+            <%= link_to 'Login to see this post', signin_path %>
         <%end%>
         </li>
     </ul>
